@@ -36,7 +36,15 @@
               <li class=""><a href="#">Other Link</a></li>
               <li class=""><a href="#">Other Link</a></li>
               <li class="divider"></li>
-              <li><a href="#">Logout</a></li>
+              <li> <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+</li>
             </ul>
           </li>
         </ul>
@@ -112,7 +120,7 @@
                       <div class="panel-body">
                         <ul class="nav navbar-nav">
                           <li><a href="{{route('subproduct.create')}}">Add Subproduct</a></li>
-                          <li><a href="{{route('subcategory.index')}}">All Subproduct</a></li>
+                          <li><a href="{{route('subproduct.index')}}">All Subproduct</a></li>
                           <li><a href="#">Link</a></li>
                         </ul>
                       </div>

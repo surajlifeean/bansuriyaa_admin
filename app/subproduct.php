@@ -14,5 +14,19 @@ class subproduct extends Model
 
     	return $this->belongsTo('App\Color');
     }
+
+    	public function images(){
+
+    	return $this->hasMany('App\Product_Image','p_id');
+    }
+    	public function getsize(){
+
+    	return $this->belongsTo('App\Size','size');
+    }
+
+    	public function getcolor(){
+
+    	return $this->belongsTo('App\Color','color');
+    }
     
 }

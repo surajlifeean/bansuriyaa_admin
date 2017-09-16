@@ -13,12 +13,15 @@ use App\Category;
 
 use App\Subcategory;
 
+use Image;
 
 use App\Product;
 
 use App\Size;
 
 use App\Color;
+
+use App\Product_Image;
 
 class SubproductController extends Controller
 {
@@ -29,7 +32,8 @@ class SubproductController extends Controller
      */
     public function index()
     {
-        //
+        $subproduct=subproduct::all();
+        return view('Subproduct.index')->withSubproduct($subproduct);
     }
 
     /**
@@ -85,36 +89,63 @@ class SubproductController extends Controller
     public function store(Request $request)
     {
         
+     //   dd($request);
         
-        dd($request);
         $this->validate($request,array(
 
-            'title'=>'required',
+        
+            'product_id'=>'required',
             'p_code'=>'required',
             'qty'=>'required',
             'price'=>'required',
             'discount'=>'required',
             'distype'=>'required',
-            'qty'=>'required',
-            'color'=>'required',
-            'size'=>'required',
+            'color_id'=>'required',
+            'size_id'=>'required',
 
             ));
 
         $subproduct=new Subproduct;
 
-        $subproduct->title=$request->title;
-        $subproduct->description=$request->description;
-        $subproduct->category_id=$request->category;
-        $subproduct->subcategory_id=$request->subcategory;
-           
-        $product->status=0;
-          
-        $product->save();
+        $subproduct->product_id=$request->product_id;
+        $subproduct->pcode=$request->p_code;
+        $subproduct->price=$request->price;
+        $subproduct->discount=$request->discount;
+        $subproduct->discount_type=$request->distype;
+        $subproduct->quantity=$request->qty;
+        $subproduct->color=$request->color_id;
+        $subproduct->size=$request->size_id;
+        $subproduct->status=0;
+        
+        $subproduct->save();
 
-        Session::flash('success','The Product is added!');
+        $images=$request->file('image');
 
-        return redirect()->route('product.index');
+       foreach($images as $image){
+         $img=new Product_Image;
+
+        if($request->hasFile('image')){
+
+            //dd($image);
+            $filename=time().'.'.$image->getClientOriginalExtension();//part of image intervention library
+            $location=public_path('/images/'.$filename);
+            
+            // use $location='images/'.$filename; on a server
+            Image::make($image)->resize(750,1000)->save($location);
+
+            $img->name=$filename;
+
+            $img->p_id=$subproduct->id;
+
+            $img->description="bansuriyaa";            
+            $img->save();
+
+        }
+        }
+
+        Session::flash('success','The Subproduct is added!');
+
+        return redirect()->route('subproduct.index');
     }
 
     /**
@@ -136,7 +167,41 @@ class SubproductController extends Controller
      */
     public function edit($id)
     {
-        //
+
+
+
+        $products=Product::all();
+
+        $pros=array();
+
+        foreach($products as $product){
+            $pros[$product->id]=$product->name;
+        }
+
+        
+        $sizes=Size::all();
+
+        $siz=array();
+
+        foreach($sizes as $size){
+            $siz[$size->id]=$size->name;
+        }
+    
+
+        $colors=Color::all();
+
+        $col=array();
+
+        foreach($colors as $color){
+            $col[$color->id]=$color->name;
+        }
+    
+            
+
+         $subproduct=subproduct::find($id);
+
+        return view('subproduct.edit')->withSubproduct($subproduct)->withProducts($pros)->withSizes($siz)->withColors($col);
+   
     }
 
     /**
@@ -148,7 +213,7 @@ class SubproductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        dd($request);
     }
 
     /**

@@ -15,7 +15,7 @@ Route::group(['middleware' => ['web']], function () {
    
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('/create', function () {
@@ -39,3 +39,7 @@ Route::resource('ajaxreq', 'AjaxsecondController');
 
    
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

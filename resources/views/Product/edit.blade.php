@@ -29,14 +29,19 @@
 		
 		<div class="col-md-6">
 				{{Form::label('category_id','Select Category:')}}
-		{{Form::select('category_id', ['1' => 'trending', '2' => 'ethnic','3'=>'collections'], null, ['placeholder' => 'Pick a Category...'],array('class'=>'form-control btn btn-primary'))}}
+		{{Form::select('category_id',$categories,$product->category_id,['class'=>'form-control category'])}}
 		</div>
 		
 
 		<div class="col-md-6">
 
 				{{Form::label('subcategory_id','Select Subcategory:')}}
-		{{Form::select('subcategory_id', ['4' => 'kurti', '5' => 'Salwar','6'=>'lehnga'], null, ['placeholder' => 'Pick a Subcategory...'],['class'=>'form-group'])}}
+				 <select class="form-control subcategory" name="subcategory_id" selected="{{$product->subcategory_id}}">
+				 <option value="{{$product->subcategory_id}}">{{$product->subcategory->name}}</option>
+  
+    </select>
+
+
 		</div>
 	</div>
 	
@@ -68,3 +73,34 @@
     </div>
 
   @endsection
+
+
+@section('scripts')
+		<script>
+
+				$('.category').on('change',function(e){
+
+					var cat_id=e.target.value;
+
+					console.log(cat_id);
+		$(".subcategory").empty();
+			$.ajax({
+               type:'GET',
+               url:'/ajaxreq/create',
+               data:{cat_id:cat_id},
+               success:function(data){
+                console.log(data);
+                $.each(data,function(index,data){
+                   $('.subcategory').append('<option value="'+data.id+'">'+data.name+'</option>');
+                 });
+                 
+               }
+            });
+
+
+
+});
+
+		</script>
+
+@endsection

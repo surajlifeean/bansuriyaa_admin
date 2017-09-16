@@ -70,7 +70,7 @@
 @section('scripts')
 		<script>
 
-				$('.category').on('change',function(e){
+				function send(){
 
 					var cat_id=e.target.value;
 
@@ -91,7 +91,7 @@
 
 
 
-});
+}
 
 		</script>
 
