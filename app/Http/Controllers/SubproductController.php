@@ -213,7 +213,42 @@ class SubproductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request);
+
+        //dd($request);
+        
+        $this->validate($request,array(
+
+        
+            'product_id'=>'required',
+            'pcode'=>'required',
+            'quantity'=>'required',
+            'price'=>'required',
+            'discount'=>'required',
+            'distype'=>'required',
+            'color_id'=>'required',
+            'size_id'=>'required',
+
+            ));
+
+        $subproduct=subproduct::find($id);
+
+        $subproduct->product_id=$request->product_id;
+        $subproduct->pcode=$request->pcode;
+        $subproduct->price=$request->price;
+        $subproduct->discount=$request->discount;
+        $subproduct->discount_type=$request->distype;
+        $subproduct->quantity=$request->quantity;
+        $subproduct->color=$request->color_id;
+        $subproduct->size=$request->size_id;
+        $subproduct->status=0;
+        
+        $subproduct->save();
+
+Session::flash('success','The Subproduct is updated!');
+
+        return redirect()->route('subproduct.index');
+
+
     }
 
     /**

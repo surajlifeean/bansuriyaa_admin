@@ -25,17 +25,17 @@
         <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="http://www.pingpong-labs.com" target="_blank">Visit Site</a></li>
+        <li><a href="http://www.bansuriyaa.com" target="_blank">Visit Site</a></li>
         <li class="dropdown ">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
             Account
             <span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
+            <ul class="dropdown-menu" role="menu"><!-- 
               <li class="dropdown-header">SETTINGS</li>
               <li class=""><a href="#">Other Link</a></li>
               <li class=""><a href="#">Other Link</a></li>
               <li class=""><a href="#">Other Link</a></li>
-              <li class="divider"></li>
+              <li class="divider"></li> -->
               <li> <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -50,7 +50,9 @@
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
-  </nav>    <div class="container-fluid main-container">
+  </nav>   
+
+   <div class="container-fluid main-container">
       <div class="col-md-2 sidebar">
         <div class="row">
   <!-- uncomment code for absolute positioning tweek see top comment in css -->
@@ -61,10 +63,10 @@
       <!-- Main Menu -->
       <div class="side-menu-container">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
+          <li class="active"><a href="{{route('home')}}"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li><!-- 
           <li><a href="#"><span class="glyphicon glyphicon-plane"></span> Active Link</a></li>
           <li><a href="#"><span class="glyphicon glyphicon-cloud"></span> Link</a></li>
-
+ -->
           <!-- Dropdown-->
           <li class="panel panel-default" id="dropdown">
                     <a data-toggle="collapse" href="#dropdown-lvl2">
@@ -75,8 +77,8 @@
                         <ul class="nav navbar-nav">
                           <li><a href="{{route('category.create')}}">Add Category</a></li>
                           <li><a href="{{route('category.index')}}">All Category</a></li>
-                          <li><a href="#">Link</a></li>
-                        </ul>
+<!--                           <li><a href="#">Link</a></li>
+ -->                        </ul>
                       </div>
                     </div>
                   </li>
@@ -89,8 +91,8 @@
                         <ul class="nav navbar-nav">
                           <li><a href="{{route('subcategory.create')}}">Add Subcategory</a></li>
                           <li><a href="{{route('subcategory.index')}}">All Subcategory</a></li>
-                          <li><a href="#">Link</a></li>
-                        </ul>
+<!--                           <li><a href="#">Link</a></li>
+ -->                        </ul>
                       </div>
                     </div>
                   </li>
@@ -105,8 +107,8 @@
                 <ul class="nav navbar-nav">
                   <li><a href="{{route('product.index')}}">All Products</a></li>
                   <li><a href="{{route('product.create')}}">Add New Product</a></li>
-                  <li><a href="#">Link</a></li>
-
+    <!--               <li><a href="#">Link</a></li>
+ -->
                   <!-- Dropdown level 2 -->
                                  </ul>
               </div>
@@ -121,8 +123,8 @@
                         <ul class="nav navbar-nav">
                           <li><a href="{{route('subproduct.create')}}">Add Subproduct</a></li>
                           <li><a href="{{route('subproduct.index')}}">All Subproduct</a></li>
-                          <li><a href="#">Link</a></li>
-                        </ul>
+<!--                           <li><a href="#">Link</a></li>
+ -->                        </ul>
                       </div>
                     </div>
                   </li>
@@ -135,8 +137,8 @@
                         <ul class="nav navbar-nav">
                           <li><a href="{{route('color.create')}}">Add Color</a></li>
                           <li><a href="{{route('color.index')}}">All Color</a></li>
-                          <li><a href="#">Link</a></li>
-                        </ul>
+<!--                           <li><a href="#">Link</a></li>
+ -->                        </ul>
                       </div>
                     </div>
                   </li>
@@ -149,18 +151,19 @@
                         <ul class="nav navbar-nav">
                           <li><a href="{{route('size.create')}}">Add Size</a></li>
                           <li><a href="{{route('size.index')}}">All Size</a></li>
-                          <li><a href="#">Link</a></li>
-                        </ul>
+<!--                           <li><a href="#">Link</a></li>
+ -->                        </ul>
                       </div>
                     </div>
                   </li>
           
 
-          <li><a href="#"><span class="glyphicon glyphicon-signal"></span> Link</a></li>
-
+<!--           <li><a href="#"><span class="glyphicon glyphicon-signal"></span> Link</a></li>
+ -->
         </ul>
       </div><!-- /.navbar-collapse -->
     </nav>
 
-  </div>
-</div>      </div>
+</div>
+</div>
+</div>

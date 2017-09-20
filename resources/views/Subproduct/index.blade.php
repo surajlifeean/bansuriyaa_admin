@@ -1,5 +1,5 @@
-{{dump($subproduct)}}
-@extends('main')
+<!-- {{dump($subproduct)}}
+ -->@extends('main')
 
 
 @section('title','|Homepage')
@@ -85,7 +85,8 @@
 
 							@endif
 
-
+                 {!! Html::LinkRoute('productimage.edit','',array($item->id),array('class'=>"btn btn-primary glyphicon glyphicon-picture"))!!}
+						
 
                  {!! Html::LinkRoute('subproduct.edit','',array($item->id),array('class'=>"btn btn-primary glyphicon glyphicon-pencil"))!!}
 							

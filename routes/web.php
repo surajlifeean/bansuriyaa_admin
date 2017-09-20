@@ -37,6 +37,9 @@ Route::resource('subcategory', 'SubcategoryController');
 
 Route::resource('ajaxreq', 'AjaxsecondController');
 
+
+Route::resource('productimage', 'SubproductimageController');
+
    
 });
 

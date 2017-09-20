@@ -1,4 +1,4 @@
-{{dump($subproduct)}}
+<!-- {{dump($subproduct)}} -->
 
 @extends('main')
 
@@ -62,14 +62,14 @@
 		{{Form::label('distype','Discount Type:')}} <br>
 
 
-Percentage:<input type="radio" name="distype" value="discounted" @if($subproduct->discount_type=='Percentage') checked @endif}}>
-Flat:<input type="radio" name="distype" value="flat" @if($subproduct->discount_type=='Flat') checked @endif}}>
+Percentage:<input type="radio" name="distype" value="Percentage" @if($subproduct->discount_type=='Percentage') checked @endif}}>
+Flat:<input type="radio" name="distype" value="Flat" @if($subproduct->discount_type=='Flat') checked @endif}}>
 
 
 		</div>
 
 	</div>
-	<br>
+	<!-- <br>
 	
 		{{Form::label('image','Main Image')}}
 		
@@ -82,7 +82,7 @@ Flat:<input type="radio" name="distype" value="flat" @if($subproduct->discount_t
     		 <input type="file" name="image[]"> 
     </div>
 </div>
-
+ -->
 <br>
 <br>
 		{{Form::submit('Submit',array('class'=>'form-control btn btn-primary'))}}
