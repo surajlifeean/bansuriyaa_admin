@@ -40,9 +40,17 @@ Route::resource('ajaxreq', 'AjaxsecondController');
 
 Route::resource('productimage', 'SubproductimageController');
 
+Route::resource('shipping','ShippingController');
    
 });
 
-Auth::routes();
+Route::get('/login','Auth\LoginController@showLoginForm')->name('login');
+
+Route::post('/login','LoginController@authenticate');
+
+Route::post('/logout','Auth\LoginController@logout')->name('logout');
+
+Route::resource('shipping','ShippingController');
+
 
 Route::get('/home', 'HomeController@index')->name('home');

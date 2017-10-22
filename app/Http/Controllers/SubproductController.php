@@ -89,7 +89,6 @@ class SubproductController extends Controller
     public function store(Request $request)
     {
         
-     //   dd($request);
         
         $this->validate($request,array(
 
@@ -99,7 +98,7 @@ class SubproductController extends Controller
             'qty'=>'required',
             'price'=>'required',
             'discount'=>'required',
-            'distype'=>'required',
+            'sale_price'=>'required',
             'color_id'=>'required',
             'size_id'=>'required',
 
@@ -110,12 +109,13 @@ class SubproductController extends Controller
         $subproduct->product_id=$request->product_id;
         $subproduct->pcode=$request->p_code;
         $subproduct->price=$request->price;
-        $subproduct->discount=$request->discount;
-        $subproduct->discount_type=$request->distype;
+        $subproduct->sale_price=$request->sale_price;
+        $subproduct->new_arrival=$request->new_arrival;
         $subproduct->quantity=$request->qty;
         $subproduct->color=$request->color_id;
         $subproduct->size=$request->size_id;
         $subproduct->status=0;
+
         
         $subproduct->save();
 

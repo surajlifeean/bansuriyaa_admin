@@ -52,9 +52,14 @@
 
                  {!! Html::LinkRoute('category.edit','',array($item->id),array('class'=>"btn btn-primary glyphicon glyphicon-pencil"))!!}
 							
-							<button type="button" class="btn btn-default" aria-label="Left Align">
+							<button type="button" class="btn btn-default delete-button" aria-label="Left Align">
 								 <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 							</button>
+
+                    {!! Form::open(['route'=>['category.destroy',$item->id], 'method'=>'DELETE','class'=>'delete-category'])!!}
+
+					{!!Form::close()!!}
+  			      
 							</td>
 							
 							</tr>
@@ -84,5 +89,17 @@
 		confirm("Do you want to make it Active?");
 
 	});
+</script>
+<script type="text/javascript">
+	
+	$('.delete-button').click(function(){
+
+    var r = confirm("Are You Sure You Wanna Delete The Category?!");
+    if (r == true) {
+       $(".delete-category").submit();
+    } 
+		
+	});
+	
 </script>
 @endsection

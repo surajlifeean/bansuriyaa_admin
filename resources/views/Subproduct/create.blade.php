@@ -38,37 +38,37 @@
 		{{Form::label('p_code','Product Code:')}}
 		{{Form::text('p_code',null,array('class'=>'form-control'))}}
 
-	<div class="row">
+
+
+      
+ 	<div class="row">
 		<div class="col-md-3">
 		{{Form::label('qty','Qty:')}}
 		{{Form::text('qty',null,array('class'=>'form-control'))}}
 		</div>
 
 		<div class="col-md-3">
-		{{Form::label('price','Price:')}}
-		{{Form::text('price',null,array('class'=>'form-control'))}}
+		{{Form::label('price','Marked Price:')}}
+		{{Form::text('price',null,array('class'=>'form-control mp'))}}
 		</div>
-		
+    
+
+    <div class="col-md-3">
+    {{Form::label('sale_price','Selling Price:')}}
+    {{Form::text('sale_price',null,array('class'=>'form-control sp'))}}
+    </div>
+    		
 		<div class="col-md-3">
-		{{Form::label('discount','Discount Value:')}}
-		{{Form::text('discount',null,array('class'=>'form-control'))}}
-		</div>
-		
-
-		<div class="col-md-3">
-		
-		{{Form::label('distype','Discount Type:')}} <br>
-
-
-		Percentage:{{Form::radio('distype','Percentage')}}
-
-		Flat:{{Form::radio('distype', 'Flat')}}
-
+		{{Form::label('discount','Discount Percent:')}}
+		{{Form::text('discount',null,array('class'=>'form-control dis'))}}
 		</div>
 
 	</div>
 	<br>
-	
+	   {{Form::label('new_arrival','Latest Arrival:')}}
+    {{Form::checkbox('new_arrival', 1, null, ['class' => 'field']) }}
+    
+<br>
 		{{Form::label('image','Main Image')}}
 		
 	
@@ -124,4 +124,28 @@
     })
 });
 </script>
+
+<script>
+
+
+
+    $(document).ready(function() {
+
+        setInterval(function(){ 
+
+          var mp=$('.mp').val();
+          var sp=$('.sp').val();
+          if(mp && sp){
+            var dis=mp-sp;
+
+            var per=dis*100/mp;
+          $('.dis').val(per);
+
+          }
+
+        }, 6000);
+    });
+
+
+  </script>
   @endsection

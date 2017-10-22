@@ -2,7 +2,7 @@
 @extends('main')
 
 
-@section('title','|Homepage')
+@section('title','|All Products')
 
 
 
@@ -54,9 +54,16 @@
 
                  {!! Html::LinkRoute('product.edit','',array($item->id),array('class'=>"btn btn-primary glyphicon glyphicon-pencil"))!!}
 							
-							<button type="button" class="btn btn-default" aria-label="Left Align">
+							<button type="button" class="btn btn-default delete-button" aria-label="Left Align">
 								 <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 							</button>
+
+                    {!! Form::open(['route'=>['product.destroy',$item->id], 'method'=>'DELETE','class'=>'delete-product'])!!}
+
+			 			
+
+					{!!Form::close()!!}
+  			      
 							</td>
 							
 							</tr>
@@ -87,4 +94,17 @@
 
 	});
 </script>
+<script type="text/javascript">
+	
+	$('.delete-button').click(function(){
+
+    var r = confirm("Are You Sure You Wanna Delete The Product?!");
+    if (r == true) {
+       $(".delete-product").submit();
+    } 
+		
+	});
+	
+</script>
+
 @endsection

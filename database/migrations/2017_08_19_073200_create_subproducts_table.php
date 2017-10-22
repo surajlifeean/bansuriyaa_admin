@@ -16,14 +16,14 @@ class CreateSubproductsTable extends Migration
         Schema::create('subproducts', function (Blueprint $table) {
              $table->increments('id');
               $table->string('product_id');
-              $table->integer('pcode');             
+              $table->string('pcode');             
               $table->integer('price');
-              $table->integer('discount')->default(0);
-              $table->string('discount_type')->nullable();
+              $table->integer('sale_price');
             $table->integer('quantity');
             $table->string('color');
             $table->string('size')->default('Free Size');
             $table->boolean('status');
+            $table->boolean('new_arrival')->nullable();
             $table->timestamps();
         });
     }

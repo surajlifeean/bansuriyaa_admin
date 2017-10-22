@@ -22,10 +22,11 @@
   			<tr>
   			<th>Product Name</th>
   			<th>product code</th>
-  			<th>price</th>
+  			<th>Marked Price</th>
+  			<th>Selling Price</th>
   			<th>quantity</th>
   			<th>Discount</th>
-  			<th>attribute</th>
+  			<th>Attribute</th>
   			<th>Image</th>
   			<th>Actions</th>
 
@@ -48,15 +49,13 @@
 							{{$item->price}}
 							</td>
 							<td>
-							{{$item->quantity}}
+							{{$item->sale_price}}
 							</td>
 							<td>
-							{{$item->discount}}
-							@if($item->discount_type=='Flat')
-							 Flat
-							@else
-							%
-							@endif
+								{{$item->quantity}}
+							</td>
+							<td>
+								{{$item->price-$item->sale_price}}
 							</td>
 							<td>
 							{{$item->getsize->name}}
