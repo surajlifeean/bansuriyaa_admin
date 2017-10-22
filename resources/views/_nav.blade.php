@@ -156,6 +156,20 @@
                       </div>
                     </div>
                   </li>
+                 <li class="panel panel-default" id="dropdown">
+                    <a data-toggle="collapse" href="#dropdown-lvl7">
+                      <span class="glyphicon glyphicon-off"></span> Shippings <span class="caret"></span>
+                    </a>
+                    <div id="dropdown-lvl7" class="panel-collapse collapse">
+                      <div class="panel-body">
+                        <ul class="nav navbar-nav">
+                          <li><a href="{{route('shipping.index')}}">Add/Update Shipping Charges</a></li>
+                          <!-- <li><a href="{{route('size.index')}}">All Size</a></li> -->
+<!--                           <li><a href="#">Link</a></li>
+ -->                        </ul>
+                      </div>
+                    </div>
+                  </li>
           
 
 <!--           <li><a href="#"><span class="glyphicon glyphicon-signal"></span> Link</a></li>

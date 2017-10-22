@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Shipping;
+
+use Session;
+
 class ShippingController extends Controller
 {
     /**
@@ -13,7 +17,8 @@ class ShippingController extends Controller
      */
     public function index()
     {
-        return view('Shippings.setshippingcharge');
+        $shipping=Shipping::first();
+        return view('Shippings.setshippingcharge')->withShipping($shipping);
     }
 
     /**
@@ -26,21 +31,24 @@ class ShippingController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         
          $this->validate($request,array(
 
             'cart_value'=>'required',
-            'shipping_charge'=>'required|max:255',
+            'shipping_cost'=>'required|max:255',
             
             ));
+ $shipping=new Shipping;
+
+        $shipping->cart_value=$request->cart_value;
+        $shipping->shipping_cost=$request->shipping_cost;
+        $shipping->save();
+
+        Session::flash('success','The Shipping Charge is Added!');
+
+        return redirect()->back();
 
     }
 
@@ -75,7 +83,22 @@ class ShippingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+                 $this->validate($request,array(
+
+            'cart_value'=>'required',
+            'shipping_cost'=>'required|max:255',
+            
+            ));
+ $shipping=Shipping::find($id);
+
+        $shipping->cart_value=$request->cart_value;
+        $shipping->shipping_cost=$request->shipping_cost;
+        $shipping->save();
+
+        Session::flash('success','The Shipping Charge is Updated!');
+
+        return redirect()->back();
+
     }
 
     /**

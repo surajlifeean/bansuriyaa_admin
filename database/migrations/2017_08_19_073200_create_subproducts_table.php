@@ -20,6 +20,7 @@ class CreateSubproductsTable extends Migration
               $table->integer('price');
               $table->integer('sale_price');
             $table->integer('quantity');
+            
             $table->string('color');
             $table->string('size')->default('Free Size');
             $table->boolean('status');

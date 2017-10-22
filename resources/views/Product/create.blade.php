@@ -26,8 +26,10 @@
 
 
 		{{Form::label('description','Description:')}}
-		{{Form::text('description',null,array('class'=>'form-control'))}}
-	<br>
+    
+		{{Form::textarea('description',null,array('class'=>'form-control summernote','id'=>''))}}
+	   
+  <br>
 	<div class="row">
 		
 		<div class="col-md-6">
@@ -94,5 +96,11 @@ $(".category").change(function(){
 });
 
 		</script>
-
+ <script>
+    $(document).ready(function() {
+            $('.summernote').summernote({
+              height:300,
+            });
+        });
+  </script>
 @endsection

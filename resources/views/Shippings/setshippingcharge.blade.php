@@ -15,8 +15,11 @@
   </div>
   <div class="panel-body">
 
+@if(count($shipping))
+	 {!!Form::model($shipping,['route'=>['shipping.update',$shipping->id],'method'=>'PUT'])!!}
+@else
     {!!Form::open(array('route'=>'shipping.store'))!!}
-
+@endif
 <div class="row">
 	<div class="col-md-6">
 		{{Form::label('cart_value','Up to Cart Value:')}}
@@ -24,11 +27,11 @@
 	</div>
 	<div class="col-md-6">
 
-		{{Form::label('shipping_charge','Shipping Cost:')}}
-		{{Form::text('shipping_charge',null,array('class'=>'form-control'))}}
+		{{Form::label('shipping_cost','Shipping Cost:')}}
+		{{Form::text('shipping_cost',null,array('class'=>'form-control'))}}
 	</div>
 </div><br><br>
-		{{Form::submit('Submit',array('class'=>'form-control btn btn-primary'))}}
+		{{Form::submit('Save',array('class'=>'form-control btn btn-primary'))}}
   {!!Form::close()!!}
 
 

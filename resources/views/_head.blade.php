@@ -6,13 +6,17 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-<link rel="stylesheet" href="css/demo.css">
+<!-- <link rel="stylesheet" href="css/demo.css">
   <link rel="stylesheet" href="css/footer-distributed-with-contact-form.css">
+ -->
 
 
   <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+<!--   <script src="{!!asset('/css/summernote.css')!!}"></script>
+ -->
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.css" rel="stylesheet">
 
   @yield('stylesheets')
   
