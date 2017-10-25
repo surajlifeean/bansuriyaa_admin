@@ -77,8 +77,7 @@
 <div class="input_fields_wrap">
     <button class="add_field_button glyphicon glyphicon-plus btn btn-primary" aria-hidden="true">Add More Images</button><br>
     <div>
-    		 <input type="file" name="image[]">
-         <img src="" id="profile-img-tag" width="200px" /> 
+    		 <input type="file" name="image[]"> 
     </div>
 </div>
 
@@ -105,18 +104,18 @@
 
 <script>
   
-var x;
+
   	$(document).ready(function() {
     var max_fields      = 5; //maximum input boxes allowed
     var wrapper         = $(".input_fields_wrap"); //Fields wrapper
     var add_button      = $(".add_field_button"); //Add button ID
     
-    x = 1; //initlal text box count
+    var x = 1; //initlal text box count
     $(add_button).click(function(e){ //on add input button click
         e.preventDefault();
         if(x < max_fields){ //max input box allowed
             x++; //text box increment
-            $(wrapper).append('<div><input type="file" name="image[]"/><img src="" id="profile-img-tag" width="200px" /><a href="#" class="remove_field">Remove</a></div>'); //add input box
+            $(wrapper).append('<div><input type="file" name="image[]"/><a href="#" class="remove_field">Remove</a></div>'); //add input box
         }
     });
     
@@ -149,22 +148,4 @@ var x;
 
 
   </script>
-
-
-<script type="text/javascript">
-
-     function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            
-            reader.onload = function (e) {
-                $('#profile-img-tag').attr('src', e.target.result);
-            }
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-</script>
-
-
-
   @endsection
